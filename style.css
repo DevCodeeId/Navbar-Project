@@ -1,0 +1,279 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma;
+  overflow-x: hidden;
+}
+
+nav {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  padding: 0 40px;
+  border-bottom: 5px solid brown;
+}
+
+nav .logo {
+  letter-spacing: 3px;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  width: 40%;
+  justify-content: space-evenly;
+}
+
+nav ul li a {
+  color: rgb(94, 96, 94);
+  text-decoration: none;
+  transition: all 1s;
+}
+
+nav ul li a:hover {
+  color: rgb(153, 161, 153);
+  text-decoration: none;
+  padding: 30px;
+}
+
+.menu-toggle{
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    top: 3px;
+    display: none;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    opacity: 0;
+    top: -5px;
+    left: -15px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+.menu-toggle span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.area{
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    transition: 1s ease-in-out;
+}
+
+
+.area .content-utama{
+    display: flex;
+    padding: 30px;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+.content-utama ul{
+    list-style-type: none;
+    color: black;
+}
+
+.content-utama ul li{
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.content-utama ul li a{
+    text-decoration: none;
+    color: black;
+    transition: 1s ease-in-out;
+}
+.content-utama ul li a:hover{
+    color: rgb(201, 199, 199);
+    padding: 20px;
+}
+
+.content-utama .menu-satu{
+    flex: 3;
+    order: 1;
+}
+
+.content-utama .menu-dua{
+    flex: 3;
+    order: 2;
+}
+
+.content-utama .menu-tiga{
+    flex: 2;
+    order: 3;
+}
+
+.area .content-bawah{
+    border-top: 1px solid rgb(255, 0, 0);
+    margin: 20px;
+    padding: 20px;
+}
+
+.content-bawah h2{
+    margin-top: 15px;
+    text-align: start;
+    letter-spacing: 5px;
+}
+
+.content-bawah .content-alamat{
+    width: 500px;
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-alamat span{
+    font-size: 12px;
+    color: rgb(165, 165, 165);
+}
+.content-alamat p{
+    color: #ababab;
+    font-size: 15px;
+}
+
+.clear{
+    width: 100%;
+    min-height: 5vh;
+    background-color: rgb(210, 17, 17);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Animasi */
+
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    transform: rotate(45deg) translate(-8px, 2px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg) translate(-3px, -6px);
+}
+
+
+
+/* responsif */
+@media screen and (max-width:768px){
+    nav ul{
+        width: 50%;
+    }
+    
+}
+@media screen and (max-width:567px){
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+
+    nav ul{
+       position: absolute;
+       right: 0;
+       top: 0;
+       width: 70%;
+       flex-direction: column;
+       height: 100vh;
+       align-items: center;
+       justify-content: space-evenly;
+       z-index: -1;
+       background-color: rgb(255, 255, 255);
+       transform: translateX(100%);
+       transition: all 1s;
+       opacity: 0;
+       box-shadow: -8px 1px 15px -10px rgba(0,0,0,0.5);
+       border-left: 5px solid brown;
+    }
+
+
+    nav ul.slide{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu-toggle{
+        display: flex;
+    }
+
+    .content-utama{
+        display: flex;
+    }
+
+
+    .area-satu .content-utama .menu-satu{
+        flex: 1;
+        order: 1;
+    }
+
+    .area-satu .content-utama .menu-dua{
+        flex: 1;
+        order: 2;
+    }
+    
+    .area-satu .content-utama .menu-tiga{
+        flex: 1;
+        order: 3;
+    }
+
+
+    .content-bawah,.content-bawah h2{
+        text-align: center;
+    }
+
+
+    .content-bawah .content-alamat{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    
+}
